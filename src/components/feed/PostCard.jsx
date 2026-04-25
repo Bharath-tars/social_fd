@@ -5,6 +5,8 @@ import AvatarRing from '../ui/AvatarRing'
 import AgentBadge from '../ui/AgentBadge'
 import { toggleLike } from '../../api/posts'
 
+const CARD_COLORS = ['#4285F4', '#EA4335', '#34A853', '#FBBC05']
+
 function timeAgo(dateStr) {
   const diff = Date.now() - new Date(dateStr).getTime()
   const mins = Math.floor(diff / 60000)
@@ -19,11 +21,16 @@ export default function PostCard({ post, onDelete, currentUserId }) {
   const [liked, setLiked] = useState(post.liked_by_me)
   const [likesCount, setLikesCount] = useState(post.likes_count)
   const [liking, setLiking] = useState(false)
+  const [heartPop, setHeartPop] = useState(false)
+
+  const accentColor = post.author.is_agent ? '#8B5CF6' : CARD_COLORS[post.id % 4]
 
   const handleLike = async (e) => {
     e.preventDefault()
     if (liking) return
     setLiking(true)
+    setHeartPop(true)
+    setTimeout(() => setHeartPop(false), 500)
     try {
       const res = await toggleLike(post.id)
       setLiked(res.data.liked)
@@ -35,95 +42,126 @@ export default function PostCard({ post, onDelete, currentUserId }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 20, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+      whileHover={{ y: -4, x: -2 }}
       style={{
         background: post.author.is_agent
-          ? 'linear-gradient(135deg, rgba(139,92,246,0.08), rgba(66,133,244,0.06))'
+          ? 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(66,133,244,0.08))'
           : 'var(--og-surface)',
-        border: `1px solid ${post.author.is_agent ? 'rgba(139,92,246,0.25)' : 'var(--og-border)'}`,
-        borderRadius: 'var(--radius-md)',
-        padding: '18px 20px',
-        marginBottom: 12,
+        border: `3px solid ${accentColor}`,
+        borderRadius: 'var(--radius-lg)',
+        padding: '20px 22px',
+        marginBottom: 18,
         backdropFilter: 'blur(16px)',
-        boxShadow: post.author.is_agent ? 'var(--glow-purple)' : 'none',
-        transition: 'border-color 0.2s, box-shadow 0.2s',
+        boxShadow: `5px 5px 0px ${accentColor}55`,
+        transition: 'box-shadow 0.15s ease',
       }}
-      whileHover={{ scale: 1.003 }}
+      onHoverStart={e => { e.target.style && (e.target.style.boxShadow = `7px 7px 0px ${accentColor}77`) }}
     >
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
         <Link to={`/profile/${post.author.username}`}>
-          <AvatarRing user={post.author} size={40} showGlow={post.author.is_agent} />
+          <motion.div whileHover={{ scale: 1.12, rotate: -3 }} whileTap={{ scale: 0.92 }}>
+            <AvatarRing user={post.author} size={42} showGlow={post.author.is_agent} />
+          </motion.div>
         </Link>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
             <Link
               to={`/profile/${post.author.username}`}
               style={{
-                fontWeight: 600,
-                fontSize: '0.95rem',
+                fontWeight: 800,
+                fontSize: '0.97rem',
                 color: post.author.is_agent ? '#c4b5fd' : 'var(--og-text)',
+                fontFamily: 'var(--font-display)',
               }}
             >
               {post.author.username}
             </Link>
             {post.author.is_agent && <AgentBadge />}
           </div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--og-text-dim)', marginTop: 1 }}>
+          <div style={{
+            fontSize: '0.72rem',
+            color: 'var(--og-text-dim)',
+            marginTop: 2,
+            fontWeight: 600,
+            letterSpacing: '0.03em',
+          }}>
             {timeAgo(post.created_at)}
           </div>
         </div>
         {currentUserId === post.user_id && onDelete && (
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.85 }}
             onClick={() => onDelete(post.id)}
             style={{
-              color: 'var(--og-text-dim)',
-              fontSize: '0.8rem',
-              padding: '4px 8px',
-              borderRadius: 6,
-              background: 'rgba(234,67,53,0.1)',
-              border: '1px solid rgba(234,67,53,0.2)',
-              transition: 'all 0.2s',
+              color: '#EA4335',
+              fontSize: '0.82rem',
+              padding: '5px 10px',
+              borderRadius: 10,
+              background: 'rgba(234,67,53,0.12)',
+              border: '2px solid rgba(234,67,53,0.35)',
+              fontWeight: 700,
             }}
           >
             ✕
-          </button>
+          </motion.button>
         )}
       </div>
 
       {/* Content */}
       <Link to={`/post/${post.id}`}>
-        <p style={{ fontSize: '0.97rem', lineHeight: 1.65, color: 'var(--og-text)', marginBottom: 14 }}>
+        <p style={{
+          fontSize: '0.97rem',
+          lineHeight: 1.7,
+          color: 'var(--og-text)',
+          marginBottom: 16,
+          fontWeight: 450,
+        }}>
           {post.content}
         </p>
       </Link>
 
       {/* Actions */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-        <button
+        <motion.button
           onClick={handleLike}
+          whileTap={{ scale: 1.5, rotate: -10 }}
+          animate={heartPop ? { scale: [1, 1.6, 0.9, 1.2, 1], rotate: [0, -15, 10, -5, 0] } : {}}
+          transition={{ duration: 0.45 }}
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 6,
+            gap: 7,
             color: liked ? '#EA4335' : 'var(--og-text-muted)',
-            fontSize: '0.85rem',
-            fontWeight: 500,
+            fontSize: '0.88rem',
+            fontWeight: 700,
+            padding: '6px 12px',
+            borderRadius: 50,
+            border: `2px solid ${liked ? '#EA4335' : 'var(--og-border-2)'}`,
+            background: liked ? 'rgba(234,67,53,0.12)' : 'transparent',
             transition: 'all 0.2s',
-            padding: '4px 0',
+            boxShadow: liked ? '2px 2px 0px #EA4335' : 'none',
           }}
         >
-          <span style={{ fontSize: '1rem', transform: liked ? 'scale(1.2)' : 'scale(1)', transition: 'transform 0.2s' }}>
+          <span style={{ fontSize: '1.05rem' }}>
             {liked ? '♥' : '♡'}
           </span>
           {likesCount}
-        </button>
+        </motion.button>
+
         <Link
           to={`/post/${post.id}`}
           style={{
-            display: 'flex', alignItems: 'center', gap: 6,
-            color: 'var(--og-text-muted)', fontSize: '0.85rem', fontWeight: 500,
+            display: 'flex', alignItems: 'center', gap: 7,
+            color: 'var(--og-text-muted)', fontSize: '0.88rem', fontWeight: 700,
+            padding: '6px 12px',
+            borderRadius: 50,
+            border: '2px solid var(--og-border-2)',
+            transition: 'all 0.2s',
           }}
         >
           <span>💬</span> {post.comments_count}

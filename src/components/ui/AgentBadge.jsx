@@ -7,19 +7,20 @@ export default function AgentBadge({ label = 'AI' }) {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 4,
-        padding: '2px 8px',
-        borderRadius: 20,
-        fontSize: '0.65rem',
-        fontWeight: 700,
-        letterSpacing: '0.06em',
-        background: 'linear-gradient(135deg, rgba(139,92,246,0.25), rgba(66,133,244,0.25))',
-        border: '1px solid rgba(139,92,246,0.5)',
-        color: '#c4b5fd',
-        animation: 'glow-pulse 2.5s ease-in-out infinite',
+        padding: '4px 10px',
+        borderRadius: 50,
+        fontSize: '0.68rem',
+        fontWeight: 900,
+        letterSpacing: '0.08em',
         textTransform: 'uppercase',
+        background: 'linear-gradient(135deg, #8B5CF6, #4285F4)',
+        border: '2.5px solid #c4b5fd',
+        color: 'white',
+        boxShadow: '2px 2px 0px #4285F4',
+        flexShrink: 0,
       }}
     >
-      ✦ {label}
+      🤖 {label}
     </span>
   )
 }

@@ -7,34 +7,41 @@
   --og-purple:  #8B5CF6;
 
   /* Backgrounds */
-  --og-bg:        #0a0a0f;
-  --og-bg-2:      #0f0f1a;
-  --og-surface:   rgba(255, 255, 255, 0.04);
-  --og-surface-2: rgba(255, 255, 255, 0.07);
-  --og-border:    rgba(255, 255, 255, 0.08);
-  --og-border-2:  rgba(255, 255, 255, 0.14);
+  --og-bg:        #0e0e18;
+  --og-bg-2:      #14141f;
+  --og-surface:   rgba(255, 255, 255, 0.07);
+  --og-surface-2: rgba(255, 255, 255, 0.11);
+  --og-border:    rgba(255, 255, 255, 0.14);
+  --og-border-2:  rgba(255, 255, 255, 0.22);
 
   /* Text */
-  --og-text:       #f0f0f8;
-  --og-text-muted: rgba(240, 240, 248, 0.5);
-  --og-text-dim:   rgba(240, 240, 248, 0.3);
+  --og-text:       #f2f2fa;
+  --og-text-muted: rgba(242, 242, 250, 0.55);
+  --og-text-dim:   rgba(242, 242, 250, 0.32);
+
+  /* Cartoon offset shadows (no blur — pure comic style) */
+  --cshadow-blue:   5px 5px 0px #4285F4;
+  --cshadow-red:    5px 5px 0px #EA4335;
+  --cshadow-yellow: 5px 5px 0px #FBBC05;
+  --cshadow-green:  5px 5px 0px #34A853;
+  --cshadow-purple: 5px 5px 0px #8B5CF6;
 
   /* Glows */
-  --glow-blue:   0 0 20px rgba(66, 133, 244, 0.35);
-  --glow-purple: 0 0 20px rgba(139, 92, 246, 0.35);
-  --glow-red:    0 0 20px rgba(234, 67, 53, 0.35);
-  --glow-green:  0 0 20px rgba(52, 168, 83, 0.35);
+  --glow-blue:   0 0 24px rgba(66, 133, 244, 0.45);
+  --glow-purple: 0 0 24px rgba(139, 92, 246, 0.45);
+  --glow-red:    0 0 24px rgba(234, 67, 53, 0.45);
+  --glow-green:  0 0 24px rgba(52, 168, 83, 0.45);
 
   /* Gradients */
   --grad-og:      linear-gradient(135deg, #4285F4 0%, #8B5CF6 50%, #EA4335 100%);
   --grad-agent:   linear-gradient(135deg, #8B5CF6 0%, #4285F4 100%);
-  --grad-surface: linear-gradient(135deg, rgba(66,133,244,0.08) 0%, rgba(139,92,246,0.08) 100%);
+  --grad-surface: linear-gradient(135deg, rgba(66,133,244,0.10) 0%, rgba(139,92,246,0.10) 100%);
 
-  /* Spacing */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
+  /* Chunky cartoon radii */
+  --radius-sm: 14px;
+  --radius-md: 22px;
+  --radius-lg: 30px;
+  --radius-xl: 40px;
 
   /* Typography */
   --font-main:    'Inter', sans-serif;

@@ -10,18 +10,20 @@ export default function AvatarRing({ user, size = 40, showGlow = false }) {
         width: size,
         height: size,
         borderRadius: '50%',
-        border: `2px solid ${color}`,
-        boxShadow: showGlow ? `0 0 12px ${color}88, 0 0 24px ${color}44` : `0 0 6px ${color}44`,
-        background: `${color}22`,
+        border: `3px solid ${color}`,
+        boxShadow: showGlow
+          ? `0 0 14px ${color}99, 3px 3px 0px ${color}66`
+          : `2px 2px 0px ${color}88`,
+        background: `${color}33`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontWeight: 700,
-        fontSize: size * 0.35,
+        fontWeight: 900,
+        fontSize: size * 0.34,
         color,
         fontFamily: 'var(--font-display)',
         flexShrink: 0,
-        transition: 'box-shadow 0.3s ease',
+        transition: 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease',
       }}
     >
       {initials}
