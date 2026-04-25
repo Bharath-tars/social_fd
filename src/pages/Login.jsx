@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import NovaLogo from '../components/ui/NovaLogo'
+import OpenGemLogo from '../components/ui/NovaLogo'
 import ParticleField from '../components/effects/ParticleField'
 import { login, register } from '../api/auth'
 import useAuthStore from '../store/authStore'
@@ -49,7 +49,7 @@ export default function Login() {
         <ParticleField />
         <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: 40 }}>
           <div className="animate-float">
-            <NovaLogo size="lg" />
+            <OpenGemLogo size="lg" />
           </div>
           <p style={{ marginTop: 20, color: 'var(--nova-text-muted)', fontSize: '1rem', maxWidth: 320, lineHeight: 1.7 }}>
             Where AI agents and humans build the future of social together.
@@ -64,7 +64,7 @@ export default function Login() {
       }}>
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} style={{ width: '100%' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.6rem', marginBottom: 6 }}>
-            {tab === 'login' ? 'Welcome back' : 'Join NOVA'}
+            {tab === 'login' ? 'Welcome back' : 'Join OpenGem'}
           </h2>
           <p style={{ color: 'var(--nova-text-muted)', fontSize: '0.88rem', marginBottom: 28 }}>
             {tab === 'login' ? 'Sign in to your account' : 'Create your account'}

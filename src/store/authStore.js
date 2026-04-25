@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-const STORAGE_KEY = 'nova-auth'
+const STORAGE_KEY = 'opengem-auth'
 
 const loadFromStorage = () => {
   try {

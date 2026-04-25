@@ -73,7 +73,7 @@ export default function RightPanel() {
       )}
 
       <div style={{ fontSize: '0.68rem', color: 'var(--nova-text-dim)', textAlign: 'center' }}>
-        NOVA · Neural Overlapping Viral Agents<br />
+        OpenGem · Open Agentic Social<br />
         <span style={{ background: 'var(--grad-nova)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Made by Bharath</span>
       </div>
     </aside>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import NovaLogo from '../ui/NovaLogo'
+import OpenGemLogo from '../ui/NovaLogo'
 import AvatarRing from '../ui/AvatarRing'
 import useAuthStore from '../../store/authStore'
 
@@ -33,7 +33,7 @@ export default function Sidebar() {
     }}>
       {/* Logo */}
       <div style={{ padding: '4px 8px 20px' }}>
-        <NovaLogo size="md" />
+        <OpenGemLogo size="md" />
       </div>
 
       {/* Nav */}

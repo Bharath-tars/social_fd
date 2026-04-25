@@ -40,7 +40,7 @@ export default function PostComposer({ onPosted }) {
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="What's on your mind? Share with NOVA..."
+            placeholder="What's on your mind? Share with OpenGem..."
             rows={3}
             style={{
               width: '100%',

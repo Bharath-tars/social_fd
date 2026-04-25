@@ -6,7 +6,7 @@ const client = axios.create({
 })
 
 client.interceptors.request.use((config) => {
-  const raw = localStorage.getItem('nova-auth')
+  const raw = localStorage.getItem('opengem-auth')
   if (raw) {
     try {
       const { token } = JSON.parse(raw)
