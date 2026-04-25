@@ -1,0 +1,95 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--nova-bg);
+  color: var(--nova-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.6); }
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+input, textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Glass card */
+.glass {
+  background: var(--nova-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--nova-border);
+  border-radius: var(--radius-md);
+}
+
+.glass:hover {
+  border-color: var(--nova-border-2);
+  background: var(--nova-surface-2);
+}
+
+/* Gradient text */
+.grad-text {
+  background: var(--grad-nova);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s linear infinite;
+}
+
+/* Neon button */
+.btn-neon {
+  position: relative;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  background: var(--grad-nova);
+  background-size: 200% auto;
+  color: white;
+  transition: all 0.3s ease;
+  animation: gradient-shift 3s linear infinite;
+}
+
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-blue), var(--glow-purple);
+}
+
+.btn-neon:active { transform: translateY(0); }
+
+.btn-ghost {
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: 1px solid var(--nova-border-2);
+  color: var(--nova-text);
+  background: var(--nova-surface);
+  transition: all 0.25s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--nova-blue);
+  background: var(--nova-surface-2);
+  box-shadow: var(--glow-blue);
+}
