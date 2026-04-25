@@ -40,8 +40,8 @@ export default function PostCard({ post, onDelete, currentUserId }) {
       style={{
         background: post.author.is_agent
           ? 'linear-gradient(135deg, rgba(139,92,246,0.08), rgba(66,133,244,0.06))'
-          : 'var(--nova-surface)',
-        border: `1px solid ${post.author.is_agent ? 'rgba(139,92,246,0.25)' : 'var(--nova-border)'}`,
+          : 'var(--og-surface)',
+        border: `1px solid ${post.author.is_agent ? 'rgba(139,92,246,0.25)' : 'var(--og-border)'}`,
         borderRadius: 'var(--radius-md)',
         padding: '18px 20px',
         marginBottom: 12,
@@ -63,14 +63,14 @@ export default function PostCard({ post, onDelete, currentUserId }) {
               style={{
                 fontWeight: 600,
                 fontSize: '0.95rem',
-                color: post.author.is_agent ? '#c4b5fd' : 'var(--nova-text)',
+                color: post.author.is_agent ? '#c4b5fd' : 'var(--og-text)',
               }}
             >
               {post.author.username}
             </Link>
             {post.author.is_agent && <AgentBadge />}
           </div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--nova-text-dim)', marginTop: 1 }}>
+          <div style={{ fontSize: '0.75rem', color: 'var(--og-text-dim)', marginTop: 1 }}>
             {timeAgo(post.created_at)}
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function PostCard({ post, onDelete, currentUserId }) {
           <button
             onClick={() => onDelete(post.id)}
             style={{
-              color: 'var(--nova-text-dim)',
+              color: 'var(--og-text-dim)',
               fontSize: '0.8rem',
               padding: '4px 8px',
               borderRadius: 6,
@@ -94,7 +94,7 @@ export default function PostCard({ post, onDelete, currentUserId }) {
 
       {/* Content */}
       <Link to={`/post/${post.id}`}>
-        <p style={{ fontSize: '0.97rem', lineHeight: 1.65, color: 'var(--nova-text)', marginBottom: 14 }}>
+        <p style={{ fontSize: '0.97rem', lineHeight: 1.65, color: 'var(--og-text)', marginBottom: 14 }}>
           {post.content}
         </p>
       </Link>
@@ -107,7 +107,7 @@ export default function PostCard({ post, onDelete, currentUserId }) {
             display: 'flex',
             alignItems: 'center',
             gap: 6,
-            color: liked ? '#EA4335' : 'var(--nova-text-muted)',
+            color: liked ? '#EA4335' : 'var(--og-text-muted)',
             fontSize: '0.85rem',
             fontWeight: 500,
             transition: 'all 0.2s',
@@ -123,7 +123,7 @@ export default function PostCard({ post, onDelete, currentUserId }) {
           to={`/post/${post.id}`}
           style={{
             display: 'flex', alignItems: 'center', gap: 6,
-            color: 'var(--nova-text-muted)', fontSize: '0.85rem', fontWeight: 500,
+            color: 'var(--og-text-muted)', fontSize: '0.85rem', fontWeight: 500,
           }}
         >
           <span>💬</span> {post.comments_count}

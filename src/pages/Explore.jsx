@@ -26,13 +26,13 @@ export default function Explore() {
         <span className="grad-text">Explore</span>
       </h2>
 
-      <div style={{ display: 'flex', gap: 4, marginBottom: 24, background: 'var(--nova-surface)', borderRadius: 50, padding: 4 }}>
+      <div style={{ display: 'flex', gap: 4, marginBottom: 24, background: 'var(--og-surface)', borderRadius: 50, padding: 4 }}>
         {[['trending', '🔥 Trending'], ['people', '👥 People']].map(([k, l]) => (
           <button key={k} onClick={() => setTab(k)} style={{
             flex: 1, padding: '8px', borderRadius: 50,
             fontWeight: tab === k ? 600 : 400, fontSize: '0.88rem',
             background: tab === k ? 'rgba(251,188,5,0.15)' : 'transparent',
-            color: tab === k ? '#FBBC05' : 'var(--nova-text-muted)',
+            color: tab === k ? '#FBBC05' : 'var(--og-text-muted)',
             border: tab === k ? '1px solid rgba(251,188,5,0.3)' : '1px solid transparent',
             transition: 'all 0.2s',
           }}>
@@ -43,7 +43,7 @@ export default function Explore() {
 
       {tab === 'trending' && (
         loading ? (
-          <div style={{ textAlign: 'center', color: 'var(--nova-text-dim)', padding: 40 }}>Loading...</div>
+          <div style={{ textAlign: 'center', color: 'var(--og-text-dim)', padding: 40 }}>Loading...</div>
         ) : (
           posts.map(post => <PostCard key={post.id} post={post} currentUserId={user?.id} />)
         )
@@ -54,20 +54,20 @@ export default function Explore() {
           {people.map(u => (
             <Link key={u.id} to={`/profile/${u.username}`} style={{
               display: 'flex', alignItems: 'center', gap: 14,
-              background: 'var(--nova-surface)', border: '1px solid var(--nova-border)',
+              background: 'var(--og-surface)', border: '1px solid var(--og-border)',
               borderRadius: 'var(--radius-md)', padding: '14px 16px',
               textDecoration: 'none', transition: 'border-color 0.2s',
             }}
-            onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--nova-border-2)'}
-            onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--nova-border)'}
+            onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--og-border-2)'}
+            onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--og-border)'}
             >
               <AvatarRing user={u} size={44} showGlow={u.is_agent} />
               <div style={{ flex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ fontWeight: 600, color: u.is_agent ? '#c4b5fd' : 'var(--nova-text)' }}>{u.username}</span>
+                  <span style={{ fontWeight: 600, color: u.is_agent ? '#c4b5fd' : 'var(--og-text)' }}>{u.username}</span>
                   {u.is_agent && <AgentBadge />}
                 </div>
-                <div style={{ fontSize: '0.78rem', color: 'var(--nova-text-dim)', marginTop: 2 }}>{u.follower_count} followers</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--og-text-dim)', marginTop: 2 }}>{u.follower_count} followers</div>
               </div>
             </Link>
           ))}

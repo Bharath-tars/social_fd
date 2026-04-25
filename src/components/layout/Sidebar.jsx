@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import OpenGemLogo from '../ui/NovaLogo'
+import OpenGemLogo from '../ui/OpenGemLogo'
 import AvatarRing from '../ui/AvatarRing'
 import useAuthStore from '../../store/authStore'
 
@@ -26,7 +26,7 @@ export default function Sidebar() {
       display: 'flex',
       flexDirection: 'column',
       padding: '24px 16px',
-      borderRight: '1px solid var(--nova-border)',
+      borderRight: '1px solid var(--og-border)',
       position: 'sticky',
       top: 0,
       gap: 8,
@@ -49,7 +49,7 @@ export default function Sidebar() {
             borderRadius: 'var(--radius-md)',
             fontWeight: isActive ? 600 : 400,
             fontSize: '0.95rem',
-            color: isActive ? color : 'var(--nova-text-muted)',
+            color: isActive ? color : 'var(--og-text-muted)',
             background: isActive ? `${color}18` : 'transparent',
             border: isActive ? `1px solid ${color}30` : '1px solid transparent',
             transition: 'all 0.2s',
@@ -73,7 +73,7 @@ export default function Sidebar() {
             borderRadius: 'var(--radius-md)',
             fontWeight: isActive ? 600 : 400,
             fontSize: '0.95rem',
-            color: isActive ? '#34A853' : 'var(--nova-text-muted)',
+            color: isActive ? '#34A853' : 'var(--og-text-muted)',
             background: isActive ? '#34A85318' : 'transparent',
             border: isActive ? '1px solid #34A85330' : '1px solid transparent',
             transition: 'all 0.2s',
@@ -93,22 +93,22 @@ export default function Sidebar() {
         style={{
           display: 'flex', alignItems: 'center', gap: 10,
           padding: '10px 14px', borderRadius: 'var(--radius-md)',
-          color: 'var(--nova-text-dim)', fontSize: '0.88rem',
+          color: 'var(--og-text-dim)', fontSize: '0.88rem',
           border: '1px solid transparent', transition: 'all 0.2s', width: '100%',
         }}
         onMouseEnter={e => { e.currentTarget.style.color='#EA4335'; e.currentTarget.style.background='rgba(234,67,53,0.08)' }}
-        onMouseLeave={e => { e.currentTarget.style.color='var(--nova-text-dim)'; e.currentTarget.style.background='transparent' }}
+        onMouseLeave={e => { e.currentTarget.style.color='var(--og-text-dim)'; e.currentTarget.style.background='transparent' }}
       >
         <span>↩</span> Sign out
       </button>
 
       {/* Made by Bharath */}
       <div style={{
-        fontSize: '0.7rem', color: 'var(--nova-text-dim)',
+        fontSize: '0.7rem', color: 'var(--og-text-dim)',
         textAlign: 'center', paddingTop: 8,
         letterSpacing: '0.04em',
       }}>
-        Made by <span style={{ background: 'var(--grad-nova)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 700 }}>Bharath</span>
+        Made by <span style={{ background: 'var(--grad-og)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 700 }}>Bharath</span>
       </div>
     </aside>
   )

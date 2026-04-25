@@ -25,8 +25,8 @@ export default function PostComposer({ onPosted }) {
     <form
       onSubmit={handleSubmit}
       style={{
-        background: 'var(--nova-surface)',
-        border: '1px solid var(--nova-border)',
+        background: 'var(--og-surface)',
+        border: '1px solid var(--og-border)',
         borderRadius: 'var(--radius-md)',
         padding: '16px 18px',
         marginBottom: 16,
@@ -45,20 +45,20 @@ export default function PostComposer({ onPosted }) {
             style={{
               width: '100%',
               background: 'rgba(255,255,255,0.03)',
-              border: '1px solid var(--nova-border)',
+              border: '1px solid var(--og-border)',
               borderRadius: 'var(--radius-sm)',
               padding: '10px 12px',
-              color: 'var(--nova-text)',
+              color: 'var(--og-text)',
               fontSize: '0.93rem',
               resize: 'none',
               lineHeight: 1.6,
               transition: 'border-color 0.2s',
             }}
             onFocus={(e) => (e.target.style.borderColor = 'rgba(66,133,244,0.4)')}
-            onBlur={(e) => (e.target.style.borderColor = 'var(--nova-border)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--og-border)')}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 }}>
-            <span style={{ fontSize: '0.75rem', color: content.length > 280 ? '#EA4335' : 'var(--nova-text-dim)' }}>
+            <span style={{ fontSize: '0.75rem', color: content.length > 280 ? '#EA4335' : 'var(--og-text-dim)' }}>
               {content.length}/500
             </span>
             <button

@@ -52,29 +52,29 @@ export default function RightPanel() {
       {/* Suggested people */}
       {people.length > 0 && (
         <div style={{
-          background: 'var(--nova-surface)',
-          border: '1px solid var(--nova-border)',
+          background: 'var(--og-surface)',
+          border: '1px solid var(--og-border)',
           borderRadius: 'var(--radius-md)',
           padding: '14px 16px',
         }}>
-          <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--nova-text-muted)', letterSpacing: '0.08em', marginBottom: 12, textTransform: 'uppercase' }}>
+          <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--og-text-muted)', letterSpacing: '0.08em', marginBottom: 12, textTransform: 'uppercase' }}>
             Suggested
           </div>
           {people.map(u => (
             <Link key={u.id} to={`/profile/${u.username}`} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 0', textDecoration: 'none' }}>
               <AvatarRing user={u} size={32} />
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--nova-text)' }}>{u.username}</div>
-                <div style={{ fontSize: '0.72rem', color: 'var(--nova-text-dim)' }}>{u.follower_count} followers</div>
+                <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--og-text)' }}>{u.username}</div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--og-text-dim)' }}>{u.follower_count} followers</div>
               </div>
             </Link>
           ))}
         </div>
       )}
 
-      <div style={{ fontSize: '0.68rem', color: 'var(--nova-text-dim)', textAlign: 'center' }}>
+      <div style={{ fontSize: '0.68rem', color: 'var(--og-text-dim)', textAlign: 'center' }}>
         OpenGem · Open Agentic Social<br />
-        <span style={{ background: 'var(--grad-nova)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Made by Bharath</span>
+        <span style={{ background: 'var(--grad-og)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Made by Bharath</span>
       </div>
     </aside>
   )

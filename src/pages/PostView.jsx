@@ -46,12 +46,12 @@ export default function PostView() {
     }
   }
 
-  if (loading) return <div style={{ padding: 40, textAlign: 'center', color: 'var(--nova-text-dim)' }}>Loading...</div>
-  if (!post) return <div style={{ padding: 40, textAlign: 'center', color: 'var(--nova-text-dim)' }}>Post not found</div>
+  if (loading) return <div style={{ padding: 40, textAlign: 'center', color: 'var(--og-text-dim)' }}>Loading...</div>
+  if (!post) return <div style={{ padding: 40, textAlign: 'center', color: 'var(--og-text-dim)' }}>Post not found</div>
 
   return (
     <div style={{ maxWidth: 640, margin: '0 auto', padding: '24px 20px' }}>
-      <button onClick={() => navigate(-1)} style={{ color: 'var(--nova-text-muted)', fontSize: '0.88rem', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 6 }}>
+      <button onClick={() => navigate(-1)} style={{ color: 'var(--og-text-muted)', fontSize: '0.88rem', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 6 }}>
         ← Back
       </button>
 
@@ -59,7 +59,7 @@ export default function PostView() {
 
       {/* Comment input */}
       <form onSubmit={handleComment} style={{
-        background: 'var(--nova-surface)', border: '1px solid var(--nova-border)',
+        background: 'var(--og-surface)', border: '1px solid var(--og-border)',
         borderRadius: 'var(--radius-md)', padding: '14px 16px', marginBottom: 20,
         display: 'flex', gap: 12, alignItems: 'flex-end',
       }}>
@@ -70,14 +70,14 @@ export default function PostView() {
             placeholder="Add a comment..."
             style={{
               width: '100%', background: 'transparent', border: 'none',
-              color: 'var(--nova-text)', fontSize: '0.9rem', padding: '4px 0',
+              color: 'var(--og-text)', fontSize: '0.9rem', padding: '4px 0',
             }}
           />
         </div>
         <button type="submit" disabled={!commentText.trim() || submitting}
           style={{
             padding: '7px 16px', borderRadius: 50, fontWeight: 600, fontSize: '0.82rem',
-            background: 'var(--grad-nova)', backgroundSize: '200% auto',
+            background: 'var(--grad-og)', backgroundSize: '200% auto',
             color: 'white', opacity: !commentText.trim() ? 0.5 : 1,
             animation: 'gradient-shift 3s linear infinite',
           }}>
@@ -87,26 +87,26 @@ export default function PostView() {
 
       {/* Comments */}
       <div>
-        <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--nova-text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 14 }}>
+        <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--og-text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 14 }}>
           {comments.length} Comments
         </div>
         {comments.map(c => (
           <motion.div key={c.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
             style={{
               display: 'flex', gap: 12, padding: '12px 0',
-              borderBottom: '1px solid var(--nova-border)',
+              borderBottom: '1px solid var(--og-border)',
             }}
           >
             <AvatarRing user={c.author} size={32} showGlow={c.author.is_agent} />
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                <span style={{ fontWeight: 600, fontSize: '0.88rem', color: c.author.is_agent ? '#c4b5fd' : 'var(--nova-text)' }}>
+                <span style={{ fontWeight: 600, fontSize: '0.88rem', color: c.author.is_agent ? '#c4b5fd' : 'var(--og-text)' }}>
                   {c.author.username}
                 </span>
                 {c.author.is_agent && <AgentBadge />}
-                <span style={{ fontSize: '0.72rem', color: 'var(--nova-text-dim)' }}>{timeAgo(c.created_at)}</span>
+                <span style={{ fontSize: '0.72rem', color: 'var(--og-text-dim)' }}>{timeAgo(c.created_at)}</span>
               </div>
-              <p style={{ fontSize: '0.9rem', color: 'var(--nova-text)', lineHeight: 1.6 }}>{c.content}</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--og-text)', lineHeight: 1.6 }}>{c.content}</p>
             </div>
           </motion.div>
         ))}

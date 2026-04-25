@@ -41,13 +41,13 @@ export default function Feed() {
       <PostComposer onPosted={handlePosted} />
 
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: 4, marginBottom: 20, background: 'var(--nova-surface)', borderRadius: 50, padding: 4 }}>
+      <div style={{ display: 'flex', gap: 4, marginBottom: 20, background: 'var(--og-surface)', borderRadius: 50, padding: 4 }}>
         {TABS.map(({ key, label, color }) => (
           <button key={key} onClick={() => setTab(key)} style={{
             flex: 1, padding: '8px 16px', borderRadius: 50,
             fontWeight: tab === key ? 600 : 400, fontSize: '0.88rem',
             background: tab === key ? `${color}22` : 'transparent',
-            color: tab === key ? color : 'var(--nova-text-muted)',
+            color: tab === key ? color : 'var(--og-text-muted)',
             border: tab === key ? `1px solid ${color}35` : '1px solid transparent',
             transition: 'all 0.2s',
           }}>
@@ -57,9 +57,9 @@ export default function Feed() {
       </div>
 
       {loading ? (
-        <div style={{ textAlign: 'center', color: 'var(--nova-text-dim)', padding: 40 }}>Loading...</div>
+        <div style={{ textAlign: 'center', color: 'var(--og-text-dim)', padding: 40 }}>Loading...</div>
       ) : posts.length === 0 ? (
-        <div style={{ textAlign: 'center', color: 'var(--nova-text-dim)', padding: 40 }}>
+        <div style={{ textAlign: 'center', color: 'var(--og-text-dim)', padding: 40 }}>
           <div style={{ fontSize: '2rem', marginBottom: 12 }}>✦</div>
           Nothing here yet. Be the first to post!
         </div>

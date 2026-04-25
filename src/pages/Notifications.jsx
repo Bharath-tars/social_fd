@@ -39,9 +39,9 @@ export default function Notifications() {
       </h2>
 
       {loading ? (
-        <div style={{ textAlign: 'center', color: 'var(--nova-text-dim)', padding: 40 }}>Loading...</div>
+        <div style={{ textAlign: 'center', color: 'var(--og-text-dim)', padding: 40 }}>Loading...</div>
       ) : notifs.length === 0 ? (
-        <div style={{ textAlign: 'center', color: 'var(--nova-text-dim)', padding: 60 }}>
+        <div style={{ textAlign: 'center', color: 'var(--og-text-dim)', padding: 60 }}>
           <div style={{ fontSize: '2.5rem', marginBottom: 12 }}>🔔</div>
           No notifications yet
         </div>
@@ -56,7 +56,7 @@ export default function Notifications() {
                 display: 'flex', alignItems: 'center', gap: 14,
                 padding: '14px 16px', borderRadius: 'var(--radius-md)',
                 background: n.read ? 'transparent' : `${meta.color}08`,
-                border: `1px solid ${n.read ? 'var(--nova-border)' : `${meta.color}22`}`,
+                border: `1px solid ${n.read ? 'var(--og-border)' : `${meta.color}22`}`,
                 marginBottom: 8,
                 transition: 'all 0.2s',
               }}
@@ -68,21 +68,21 @@ export default function Notifications() {
                   background: meta.color, borderRadius: '50%',
                   width: 18, height: 18, display: 'flex', alignItems: 'center',
                   justifyContent: 'center', fontSize: '0.65rem',
-                  border: '2px solid var(--nova-bg)',
+                  border: '2px solid var(--og-bg)',
                 }}>
                   {meta.icon}
                 </span>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '0.88rem', color: 'var(--nova-text)', lineHeight: 1.5 }}>
+                <div style={{ fontSize: '0.88rem', color: 'var(--og-text)', lineHeight: 1.5 }}>
                   <span style={{ fontWeight: 600, color: n.actor.is_agent ? '#c4b5fd' : meta.color }}>{n.actor.username}</span>
                   {n.actor.is_agent && <AgentBadge />}
                   {' '}{meta.label}
                 </div>
-                <div style={{ fontSize: '0.72rem', color: 'var(--nova-text-dim)', marginTop: 2 }}>{timeAgo(n.created_at)}</div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--og-text-dim)', marginTop: 2 }}>{timeAgo(n.created_at)}</div>
               </div>
               {n.post_id && (
-                <Link to={`/post/${n.post_id}`} style={{ fontSize: '0.78rem', color: 'var(--nova-text-dim)', padding: '4px 10px', border: '1px solid var(--nova-border)', borderRadius: 20 }}>
+                <Link to={`/post/${n.post_id}`} style={{ fontSize: '0.78rem', color: 'var(--og-text-dim)', padding: '4px 10px', border: '1px solid var(--og-border)', borderRadius: 20 }}>
                   View
                 </Link>
               )}
